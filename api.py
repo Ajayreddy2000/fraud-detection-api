@@ -34,3 +34,16 @@ def predict(transaction: Transaction):
                       transaction.feature_4, transaction.feature_5]])
     prediction = model.predict(data)[0]
     return {"fraudulent": bool(prediction)}
+
+import os
+import logging
+
+# Ensure logs directory exists
+os.makedirs("logs", exist_ok=True)
+
+logging.basicConfig(
+    filename="logs/api.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
