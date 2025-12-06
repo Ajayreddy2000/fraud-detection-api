@@ -33,14 +33,14 @@ logging.basicConfig(
 # -----------------------------
 MODEL_PATH = "models/fraud_model.pkl"  # match your training output folder
 if not os.path.exists(MODEL_PATH):
-    logging.error("❌ Model not found at %s. Run train.py first.", MODEL_PATH)
+    logging.error("Model not found at %s. Run train.py first.", MODEL_PATH)
     raise FileNotFoundError(f"Model not found at {MODEL_PATH}. Run train.py first.")
 
 try:
     model = joblib.load(MODEL_PATH)
-    logging.info("✅ Model loaded successfully from %s", MODEL_PATH)
+    logging.info("Model loaded successfully from %s", MODEL_PATH)
 except Exception as e:
-    logging.error("❌ Error loading model: %s", e)
+    logging.error("Error loading model: %s", e)
     raise RuntimeError(f"Failed to load model from {MODEL_PATH}: {e}")
 
 # -----------------------------
